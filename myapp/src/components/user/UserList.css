@@ -1,0 +1,51 @@
+.user-list-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .user-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .user-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    transition: transform 0.2s ease;
+  }
+  
+  .user-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    color: #ff4444;
+    font-size: 1.2rem;
+  }
+  
