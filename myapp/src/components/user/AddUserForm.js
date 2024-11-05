@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addUser } from "./userSlice";
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import './AddUserForm.css'
 
 const AddUserForm = () => {
@@ -9,6 +9,7 @@ const AddUserForm = () => {
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
   const dispatch=useDispatch()
+  const addingUserStatus=useSelector((state)=>state.users.addingUserStatus)
   const handleSubmit=(e)=>{
     e.preventDefault()
 
@@ -20,6 +21,10 @@ const AddUserForm = () => {
         avatar:avatar|| "No image"
     }
     dispatch(addUser(newUser))
+    setFirstName('')
+    setLastName('')
+    setEmail('')
+    setAvatar('')
 
   }
   return (
@@ -64,7 +69,11 @@ const AddUserForm = () => {
           required
         />
       </label>
-      <button type="submit" className="submit-btn">Add User</button>
+      {addingUserStatus ==='loading' ?(
+        <div className="spinner"></div>
+      ):(
+       <button type="submit" className="submit-btn">Add User</button>
+      )}
     </form>
   );
 };

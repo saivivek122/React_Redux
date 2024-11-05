@@ -12,6 +12,13 @@ const UserList = () => {
             dispatch(fetchUser())
         }
     },[status,dispatch])
+
+    if(status==='loading'){
+        return <div className="spinner"></div>
+    }
+    if(status==='failed'){
+        return <p className="error">Error fetching users.</p>
+    }
     return (
         <div className="user-list-container">
           <h2>User List</h2>
